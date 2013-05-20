@@ -156,7 +156,7 @@ module Blather
     # Remove a child with the name and (optionally) namespace given
     #
     # @param [String] name the name or xpath of the node to remove
-    # @param [String, nil] ns the namespace the node is in
+    # @param [Hash, nil] ns a collection of namespace prefixes to search with
     def remove_child(name, ns = nil)
       child = xpath(name, ns).first
       child.remove if child
@@ -172,7 +172,7 @@ module Blather
     # The content of the named node
     #
     # @param [String] name the name or xpath of the node
-    # @param [String, nil] ns the namespace the node is in
+    # @param [Hash, nil] ns a collection of namespace prefixes to search with
     # @return [String, nil] the content of the node
     def content_from(name, ns = nil)
       child = xpath(name.to_s, ns).first
